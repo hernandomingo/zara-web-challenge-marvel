@@ -1,9 +1,12 @@
 import { CharactersGrid } from "@/components";
+import { searchCharacters } from "@/api/marvel-api";
 
 const CharactersPage = async () => {
+  const characters = await searchCharacters();
+
   return (
     <div>
-      <CharactersGrid />
+      <CharactersGrid characters={characters.results} />
     </div>
   );
 };

@@ -5,7 +5,7 @@ import { HeartIcon } from ".";
 export const TopMenu = () => {
   return (
     <header className="bg-black py-4">
-      <div className="mx-4 lg:mx-12 flex items-center justify-between">
+      <div className="mx-4 md:mx-12 flex items-center justify-between">
         <Link href="/characters">
           <Image
             src="/marvel.svg"

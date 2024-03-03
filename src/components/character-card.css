@@ -2,19 +2,15 @@
   position: relative;
   width: 172.5px;
   background-color: black;
-
 }
 
 .character-card:after {
   content: "";
   position: absolute;
-  margin: -12px;
-  right: 0;
   bottom: 0;
-  width: 24px;
-  height: 24px;
-  transform:rotate(45deg);
-  background-color: white;
+  right: 0;
+  border-bottom: 13px solid white;
+  border-left: 13px solid transparent;
 }
 
 .character-image {
@@ -31,11 +27,16 @@
   color: white;
   text-transform: uppercase;
 
-  background: linear-gradient(to bottom, var(--marvel-red), var(--marvel-red) 50%, black, black 50%);
+  background: linear-gradient(
+    to bottom,
+    var(--marvel-red),
+    var(--marvel-red) 50%,
+    black,
+    black 50%
+  );
   background-size: 100% 200%;
   background-position: 100% 100%;
   transition: all ease-in-out 300ms;
-  
 }
 
 .character-card:hover .character-info {
