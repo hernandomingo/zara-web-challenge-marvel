@@ -1,9 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { HeartIconOutline } from "@/components";
 import { Character } from "../models";
-
-import "./character-card.css";
+import {
+  CharacterCardContainer,
+  CharacterImageContainer,
+  CharacterInfoContainer,
+} from "./styles/StyledCharacterCard";
+import { HeartIconOutline } from "@/components";
 
 interface CharacterCardProps {
   character: Character;
@@ -13,8 +16,8 @@ export const CharacterCard = ({ character }: CharacterCardProps) => {
   const { id, name, images } = character;
 
   return (
-    <div className="character-card">
-      <div className="character-image">
+    <CharacterCardContainer>
+      <CharacterImageContainer>
         <Link href={`/characters/${id}`}>
           <Image
             src={images.little}
@@ -23,13 +26,13 @@ export const CharacterCard = ({ character }: CharacterCardProps) => {
             width={172.5}
           />
         </Link>
-      </div>
-      <div className="character-info">
+      </CharacterImageContainer>
+      <CharacterInfoContainer>
         <p className="w-28 whitespace-nowrap overflow-hidden text-ellipsis">
           {name}
         </p>
         <HeartIconOutline color="white" size={12} />
-      </div>
-    </div>
+      </CharacterInfoContainer>
+    </CharacterCardContainer>
   );
 };
