@@ -7,12 +7,15 @@ interface ComicsListProps {
 
 export const ComicsList = async ({ comics }: ComicsListProps) => {
   return (
-    <div className="max-w-[960px] md:h-72 lg:h-80 mx-auto whitespace-nowrap overflow-auto px-4 md:px-12 lg:px-0 py-12">
-      <h2 className="text-2xl lg:text-[32px] font-bold uppercase">COMICS</h2>
-      <p>ComicsList</p>
-      {comics.map((comic) => (
-        <ComicCard key={comic.id} comic={comic} />
-      ))}
+    <div className="flex flex-col max-w-[960px] mx-auto px-4 md:px-12 lg:px-0 py-12">
+      <h2 className="flex mb-6 text-2xl lg:text-[32px] font-bold uppercase">
+        COMICS
+      </h2>
+      <div className="flex flex-nowrap whitespace-nowrap gap-4 overflow-x-scroll scroll">
+        {comics.map((comic) => (
+          <ComicCard key={comic.id} comic={comic} />
+        ))}
+      </div>
     </div>
   );
 };
