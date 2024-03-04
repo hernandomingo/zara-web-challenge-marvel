@@ -8,7 +8,7 @@ export default function CharactersLayout({
   return (
     <>
       <TopMenu />
-      <div className="p-4 md:p-12">{children}</div>
+      <div>{children}</div>
     </>
   );
 }

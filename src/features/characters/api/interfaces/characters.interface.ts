@@ -1,4 +1,4 @@
-export interface CharacterResponse {
+export interface CharacterApiResponse {
   code: number;
   status: string;
   copyright: string;

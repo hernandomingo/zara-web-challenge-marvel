@@ -1,8 +1,8 @@
-import { SimpleCharacter } from "@/interfaces";
 import { CharacterCard } from ".";
+import { Character } from "../models";
 
 interface CharactersGridProps {
-  characters: SimpleCharacter[];
+  characters: Character[];
 }
 
 export const CharactersGrid = ({ characters }: CharactersGridProps) => {
