@@ -1,9 +1,10 @@
 import { HTMLProps } from "react";
 
 export const HeartIconFilled = ({
-  size = 24,
+  className,
   color = "#EC1D24",
   onClick,
+  size = 24,
 }: HTMLProps<SVGElement>) => {
   return (
     <svg
@@ -11,6 +12,7 @@ export const HeartIconFilled = ({
       viewBox="0 0 24 22"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
       onClick={onClick}
     >
       <path

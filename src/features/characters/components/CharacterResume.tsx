@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Character } from "../models";
-import { HeartIconOutline } from "@/components";
+import { FavoriteIcon } from ".";
 
 interface CharacterResumeProps {
   character: Character;
@@ -26,7 +26,11 @@ export const CharacterResume = ({ character }: CharacterResumeProps) => {
             <h1 className="text-[32px] lg:text-[40px] font-bold uppercase">
               {name}
             </h1>
-            <HeartIconOutline color="white" size={24} />
+            <FavoriteIcon
+              character={character}
+              className="cursor-pointer"
+              size={24}
+            />
           </div>
           <p className="text-base font-normal">{description}</p>
         </div>

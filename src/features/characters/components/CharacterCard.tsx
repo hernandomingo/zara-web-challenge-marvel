@@ -31,7 +31,7 @@ export const CharacterCard = ({ character }: CharacterCardProps) => {
         <p className="w-28 whitespace-nowrap overflow-hidden text-ellipsis">
           {name}
         </p>
-        <FavoriteIcon character={character} />
+        <FavoriteIcon character={character} size={12} />
       </CharacterInfoContainer>
     </CharacterCardContainer>
   );

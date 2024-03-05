@@ -1,9 +1,10 @@
 import { HTMLProps } from "react";
 
 export const HeartIconOutline = ({
-  size = 12,
+  className,
   color = "#EC1D24",
   onClick,
+  size = 12,
 }: HTMLProps<SVGElement>) => {
   return (
     <svg
@@ -11,6 +12,7 @@ export const HeartIconOutline = ({
       viewBox="0 0 15 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
       onClick={onClick}
     >
       <path

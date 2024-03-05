@@ -1,14 +1,15 @@
 "use client";
 
+import { HTMLProps } from "react";
 import { HeartIconFilled, HeartIconOutline } from "@/components";
 import { Character } from "../models";
 import { useFavoritesContext } from "../context/context";
 
-interface HeartIconProps {
+interface HeartIconProps extends HTMLProps<SVGElement> {
   character: Character;
 }
 
-export const FavoriteIcon = ({ character }: HeartIconProps) => {
+export const FavoriteIcon = ({ character, ...rest }: HeartIconProps) => {
   const { favorites, toggleFavorite } = useFavoritesContext();
 
   const handleClick = () => {
@@ -18,8 +19,8 @@ export const FavoriteIcon = ({ character }: HeartIconProps) => {
   const isInFavorites = !!favorites[`${character.id}`];
 
   return isInFavorites ? (
-    <HeartIconFilled size={12} onClick={handleClick} />
+    <HeartIconFilled onClick={handleClick} {...rest} />
   ) : (
-    <HeartIconOutline color="white" size={12} onClick={handleClick} />
+    <HeartIconOutline color="white" onClick={handleClick} {...rest} />
   );
 };
