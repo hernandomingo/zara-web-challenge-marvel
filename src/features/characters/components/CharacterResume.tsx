@@ -7,7 +7,7 @@ interface CharacterResumeProps {
 }
 
 export const CharacterResume = ({ character }: CharacterResumeProps) => {
-  const { description, images, name } = character;
+  const { description, images, name = "" } = character;
 
   return (
     <div className="bg-black text-white">

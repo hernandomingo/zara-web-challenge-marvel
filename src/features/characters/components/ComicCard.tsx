@@ -12,13 +12,15 @@ interface ComicCardProps {
 }
 
 export const ComicCard = ({ comic }: ComicCardProps) => {
+  const { title } = comic;
+
   return (
     <ComicCardContainer>
       <ComicImageContainer>
-        <Image src={comic.image} alt={`Comic "${name}" image`} fill />
+        <Image src={comic.image} alt={`Comic "${title}" image`} fill />
       </ComicImageContainer>
       <div className="text-wrap">
-        <p className="text-base font-medium">{comic.title}</p>
+        <p className="text-base font-medium">{title}</p>
         {comic.onSaleDate && (
           <p className="text-xs font-normal">
             {comic.onSaleDate.getFullYear()}

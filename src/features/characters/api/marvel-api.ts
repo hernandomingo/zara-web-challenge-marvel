@@ -1,4 +1,9 @@
-import { baseUrl } from "./constants";
+import {
+  baseUrl,
+  charactersLimit,
+  comicsLimit,
+  comicsOrderBy,
+} from "./constants";
 import { CharacterApiResponse } from "./interfaces/characters.interface";
 import { CharacterComicsAPIResponse } from "./interfaces/comics.interface";
 import { getApiParams } from "./helpers";
@@ -11,7 +16,7 @@ export const searchCharacters = async (
   const params = new URLSearchParams({
     ...getApiParams(),
     ...(text && { nameStartsWith: text }),
-    limit: "50",
+    limit: charactersLimit,
   });
 
   const url = `${baseUrl}/characters?${params.toString()}`;
@@ -42,6 +47,8 @@ export const getCharacterDetailsById = async (id: string | number) => {
 export const getCharacterComics = async (id: string | number) => {
   const params = new URLSearchParams({
     ...getApiParams(),
+    limit: comicsLimit,
+    orderBy: comicsOrderBy,
   });
 
   const url = `${baseUrl}/characters/${id}/comics?${params.toString()}`;

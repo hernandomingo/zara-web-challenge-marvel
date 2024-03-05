@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Character } from "../models";
+import { FavoriteIcon } from ".";
 import {
   CharacterCardContainer,
   CharacterImageContainer,
   CharacterInfoContainer,
 } from "./styles/StyledCharacterCard";
-import { HeartIconOutline } from "@/components";
 
 interface CharacterCardProps {
   character: Character;
@@ -31,7 +31,7 @@ export const CharacterCard = ({ character }: CharacterCardProps) => {
         <p className="w-28 whitespace-nowrap overflow-hidden text-ellipsis">
           {name}
         </p>
-        <HeartIconOutline color="white" size={12} />
+        <FavoriteIcon character={character} />
       </CharacterInfoContainer>
     </CharacterCardContainer>
   );

@@ -1,17 +1,17 @@
 import { HTMLProps } from "react";
 
-interface HeartIconProps extends HTMLProps<SVGElement> {
-  size?: number;
-  color?: string;
-}
-
-export const HeartIcon = ({ size = 24, color = "#EC1D24" }: HeartIconProps) => {
+export const HeartIconFilled = ({
+  size = 24,
+  color = "#EC1D24",
+  onClick,
+}: HTMLProps<SVGElement>) => {
   return (
     <svg
       width={size}
       viewBox="0 0 24 22"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      onClick={onClick}
     >
       <path
         fillRule="evenodd"
