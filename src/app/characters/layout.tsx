@@ -1,4 +1,5 @@
 import { TopMenu } from "@/components";
+import { FavoritesCounter } from "@/features/characters/components/FavoritesCounter";
 
 export default function CharactersLayout({
   children,
@@ -7,7 +8,9 @@ export default function CharactersLayout({
 }) {
   return (
     <>
-      <TopMenu />
+      <TopMenu>
+        <FavoritesCounter />
+      </TopMenu>
       <div>{children}</div>
     </>
   );

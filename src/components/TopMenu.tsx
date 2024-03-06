@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { HeartIconFilled } from ".";
-import { FavoritesCounter } from "./FavoritesCounter";
 
-export const TopMenu = () => {
+interface TopMenuProps {
+  children?: React.ReactNode;
+}
+
+export const TopMenu = ({ children }: TopMenuProps) => {
   return (
     <header className="bg-black py-4">
       <div className="mx-4 md:mx-12 flex items-center justify-between">
@@ -16,12 +18,7 @@ export const TopMenu = () => {
             priority
           />
         </Link>
-        <div className="flex cursor-pointer">
-          <div className="mr-2">
-            <HeartIconFilled size={24} />
-          </div>
-          <FavoritesCounter />
-        </div>
+        {children}
       </div>
     </header>
   );
