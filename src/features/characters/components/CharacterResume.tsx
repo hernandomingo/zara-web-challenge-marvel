@@ -19,6 +19,7 @@ export const CharacterResume = ({ character }: CharacterResumeProps) => {
             fill
             priority
             style={{ objectFit: "contain" }}
+            sizes="(max-width: 1024px) 288px, 320px"
           />
         </div>
         <div className="flex flex-col flex-1 justify-center px-4 py-6 md:pr-12 lg:p-0">

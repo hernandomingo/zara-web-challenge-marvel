@@ -17,7 +17,12 @@ export const ComicCard = ({ comic }: ComicCardProps) => {
   return (
     <ComicCardContainer>
       <ComicImageContainer>
-        <Image src={comic.image} alt={`Comic "${title}" image`} fill />
+        <Image
+          src={comic.image}
+          alt={`Comic "${title}" image`}
+          fill
+          sizes="(min-width: 320px) 100vw"
+        />
       </ComicImageContainer>
       <div className="text-wrap">
         <p className="text-base font-medium">{title}</p>
