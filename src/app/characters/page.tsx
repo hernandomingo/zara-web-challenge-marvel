@@ -1,12 +1,25 @@
 import { searchCharacters } from "@/features/characters/api/marvel-api";
-import { CharactersGrid } from "@/features/characters/components";
+import { CharactersGrid, Counter } from "@/features/characters/components";
+import { SearchBar } from "@/features/characters/components/SearchBar";
 
-export default async function CharactersPage() {
-  const characters = await searchCharacters();
+interface CharactersPageProps {
+  searchParams?: {
+    query?: string;
+  };
+}
+
+export default async function CharactersPage({
+  searchParams,
+}: CharactersPageProps) {
+  const query = searchParams?.query || "";
+
+  const searchResult = await searchCharacters(query);
 
   return (
     <div className="p-4 md:p-12">
-      <CharactersGrid characters={characters.results} />
+      <SearchBar />
+      <Counter totalCount={searchResult.total} />
+      <CharactersGrid characters={searchResult.results} />
     </div>
   );
 }
