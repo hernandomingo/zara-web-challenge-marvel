@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Providers } from "./providers";
 import { Roboto_Condensed } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
-
+import { theme } from "@/styles/theme";
 import "./globals.css";
 
 const roboto = Roboto_Condensed({ subsets: ["latin"] });
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <NextTopLoader color="#EC1D24" showSpinner={false} />
+        <NextTopLoader color={theme.colors.red} showSpinner={false} />
         <Providers>{children}</Providers>
       </body>
     </html>

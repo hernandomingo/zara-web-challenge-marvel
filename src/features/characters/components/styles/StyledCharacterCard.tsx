@@ -19,15 +19,15 @@ export const CharacterCardContainer = styled.div`
 
 export const CharacterImageContainer = styled.div`
   width: 172.5px;
-  border-bottom: 5px solid var(--marvel-red);
+  border-bottom: 5px solid ${({ theme }) => theme.colors.red};
 `;
 
 export const CharacterInfoContainer = styled.div`
   align-items: center;
   background: linear-gradient(
     to bottom,
-    var(--marvel-red),
-    var(--marvel-red) 50%,
+    ${({ theme }) => theme.colors.red},
+    ${({ theme }) => theme.colors.red} 50%,
     black,
     black 50%
   );

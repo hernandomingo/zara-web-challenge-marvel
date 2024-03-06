@@ -2,24 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --marvel-red: #EC1D24;
-  --marvel-grey: #D9D9D9
-}
-
-::-webkit-scrollbar {
-  width: 0;
-  height: 4px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--marvel-grey); 
-}
- 
-::-webkit-scrollbar-thumb {
-  background: var(--marvel-red); 
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
