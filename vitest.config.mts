@@ -11,5 +11,6 @@ export default defineConfig({
     coverage: {
       include: ["src"],
     },
+    setupFiles: ["./src/utils/setupTest.ts"],
   },
 });

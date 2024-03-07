@@ -1,5 +1,5 @@
 import { TopMenu } from "@/components";
-import { FavoritesCounter } from "@/features/characters/components/FavoritesCounter";
+import { FavoritesCounter } from "@/features/characters/components";
 
 export default function CharactersLayout({
   children,

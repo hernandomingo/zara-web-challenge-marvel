@@ -1,9 +1,13 @@
 "use client";
 
-import useSearch from "../hooks/useSearch";
+import useSearch from "../features/characters/hooks/useSearch";
 import { SearchIcon } from "@/components";
 
-export const SearchBar = () => {
+interface SearchBarProps {
+  placeholder?: string;
+}
+
+export const SearchBar = ({ placeholder = "" }: SearchBarProps) => {
   const [searchQuery, handleSearch] = useSearch();
 
   return (
@@ -12,7 +16,7 @@ export const SearchBar = () => {
         <input
           type="text"
           className="w-full py-2 pl-6 focus:outline-none border-b-2 border-black"
-          placeholder="SEARCH CHARACTER..."
+          placeholder={placeholder}
           onChange={(e) => {
             handleSearch(e.target.value);
           }}
