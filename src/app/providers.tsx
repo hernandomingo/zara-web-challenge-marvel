@@ -1,10 +1,10 @@
 "use client";
 
-import { FavoritesContextProvider } from "@/features/characters/context/context";
+import { FavoritesContextProvider } from "@/features/characters/context/favorites";
 import StyledComponentsRegistry from "@/styles/registry";
+import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "@/styles/globals";
 import { theme } from "@/styles/theme";
-import { ThemeProvider } from "styled-components";
 
 interface ProviderProps {
   children: React.ReactNode;

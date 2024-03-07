@@ -3,7 +3,7 @@
 import { HTMLProps } from "react";
 import { HeartIconFilled, HeartIconOutline } from "@/components";
 import { Character } from "../models";
-import { useFavoritesContext } from "../context/context";
+import { useFavoritesContext } from "../context/favorites";
 
 interface HeartIconProps extends HTMLProps<SVGElement> {
   character: Character;
