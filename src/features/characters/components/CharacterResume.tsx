@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Character } from "../models";
 import { FavoriteIcon } from ".";
+import { CharacterResumeContainer } from "./styles/StyledCharacterResume";
 
 interface CharacterResumeProps {
   character: Character;
@@ -10,7 +11,7 @@ export const CharacterResume = ({ character }: CharacterResumeProps) => {
   const { description, images, name = "" } = character;
 
   return (
-    <div className="bg-black text-white">
+    <CharacterResumeContainer>
       <div className="flex flex-col md:flex-row md:gap-12 w-full max-w-[960px] md:h-72 lg:h-80 mx-auto">
         <div className="relative w-full aspect-square md:max-w-72 lg:max-w-80 md:max-h-72 lg:max-h-80">
           <Image
@@ -36,6 +37,6 @@ export const CharacterResume = ({ character }: CharacterResumeProps) => {
           <p className="text-base font-normal">{description}</p>
         </div>
       </div>
-    </div>
+    </CharacterResumeContainer>
   );
 };
