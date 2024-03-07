@@ -5,10 +5,14 @@ import { SearchIcon } from "@/components";
 
 interface SearchBarProps {
   placeholder?: string;
+  searchDelay: number;
 }
 
-export const SearchBar = ({ placeholder = "" }: SearchBarProps) => {
-  const [searchQuery, handleSearch] = useSearch();
+export const SearchBar = ({
+  placeholder = "",
+  searchDelay,
+}: SearchBarProps) => {
+  const [searchQuery, handleSearch] = useSearch(searchDelay);
 
   return (
     <div className="w-full flex justify-center mb-3">

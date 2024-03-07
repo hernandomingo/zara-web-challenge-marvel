@@ -17,7 +17,7 @@ export default async function CharactersPage({
 
   return (
     <div className="p-4 md:p-12">
-      <SearchBar placeholder="SEARCH CHARACTER..." />
+      <SearchBar placeholder="SEARCH A CHARACTER..." searchDelay={200} />
       <Counter totalCount={searchResult.total} />
       <CharactersGrid characters={searchResult.results} />
     </div>
