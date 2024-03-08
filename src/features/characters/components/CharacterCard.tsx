@@ -21,7 +21,7 @@ export const CharacterCard = ({ character }: CharacterCardProps) => {
         <Link href={`/characters/${id}`}>
           <Image
             src={images.little}
-            alt="Character image"
+            alt={`${name} image`}
             height={190}
             width={172.5}
           />
