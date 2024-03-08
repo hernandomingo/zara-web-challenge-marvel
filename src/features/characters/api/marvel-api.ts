@@ -12,7 +12,7 @@ import { Character } from "../models";
 
 export const searchCharacters = async (
   text: string | undefined = undefined
-): Promise<{ total: number; results: Character[] }> => {
+): Promise<{ count: number; total: number; results: Character[] }> => {
   const params = new URLSearchParams({
     ...getApiParams(),
     ...(text && { nameStartsWith: text }),
@@ -26,7 +26,11 @@ export const searchCharacters = async (
 
   const characterList = result.data.results.map(createAdaptedCharacter);
 
-  return { total: result.data.total, results: characterList };
+  return {
+    count: result.data.count,
+    total: result.data.total,
+    results: characterList,
+  };
 };
 
 export const getCharacterDetailsById = async (id: string | number) => {
