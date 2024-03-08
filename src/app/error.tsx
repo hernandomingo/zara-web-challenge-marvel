@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect } from "react";
 
 export default function Error({
@@ -32,6 +33,11 @@ export default function Error({
               >
                 Reload
               </button>
+              <Link href="/">
+                <button className="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-marvelRed text-white hover:bg-marvelGrey hover:text-black focus:outline-none focus:ring-2 focus:ring-marvelGrey focus:ring-opacity-50">
+                  Go home
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -42,6 +48,7 @@ export default function Error({
           alt="Disconnected"
           height={505}
           width={375}
+          priority
         />
       </div>
     </div>
