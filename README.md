@@ -171,3 +171,6 @@ Folders named `__tests__` are for tests of that section
 Folders named `__mocks__` are for mocks of that section
 
 </details>
+
+## Tradeoffs
+- With more time I would have added pagination for the characters, adding a pagination component below the page or a load more button
