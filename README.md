@@ -3,6 +3,7 @@ This project is deployed [here](https://zara-web-challenge-marvel.vercel.app/)
 
 ## Development
 ### Env variables
+If you don't have an api key you could use mine, keep in mind that it could be inactive or with the rate limit exceeded
 <details>
   <summary>Expand</summary>
 
@@ -10,10 +11,10 @@ This project is deployed [here](https://zara-web-challenge-marvel.vercel.app/)
 MARVEL_PUBLIC_KEY="8c7a0326ecf5c36f3d3aaa51e3996bb6"
 MARVEL_PRIVATE_KEY="80718026b8dbb764ac02058d12dd81751ca7f704"
 ```
-
 </details>
 
-Steps to start app on development
+---
+### Steps to start app on development
 
 1. Clone repository and open it
 2. Copy **.env.template** and rename to **.env**
@@ -29,7 +30,7 @@ npm run dev
 6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Docker
-Steps to build docker image and run it
+### Steps to build docker image and run it
 
 1. Clone repository and open it
 2. Copy **.env.template** and rename to **.env**
@@ -40,6 +41,7 @@ docker build -t marvel-characters-zara .
 
 docker run -p 3000:3000 --name characters-nextjs marvel-characters-zara
 ```
+
 
 # About the project
 ## Technologies used
