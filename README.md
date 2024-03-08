@@ -1,3 +1,6 @@
+# ZARA WEB CHALLENGE
+This project is deployed [here](https://zara-web-challenge-marvel.vercel.app/)
+
 ## Development
 ### Env variables
 <details>
