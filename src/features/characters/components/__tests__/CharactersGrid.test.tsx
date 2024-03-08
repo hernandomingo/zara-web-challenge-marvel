@@ -5,8 +5,10 @@ import { renderWithProviders, screen } from "@/utils/test-utils";
 
 describe("CharactersGrid component", () => {
   it("should render two character cards with images", () => {
-    renderWithProviders(<CharactersGrid characters={mockAdaptedCharacters} />);
-    const images = screen.getAllByAltText("Character image");
+    const { container } = renderWithProviders(
+      <CharactersGrid characters={mockAdaptedCharacters} />
+    );
+    const images = container.querySelectorAll("img");
     expect(images.length).toBe(2);
   });
 });

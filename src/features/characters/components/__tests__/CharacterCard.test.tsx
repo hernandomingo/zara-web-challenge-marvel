@@ -6,7 +6,9 @@ import { renderWithProviders, screen } from "@/utils/test-utils";
 describe("CharacterCard component", () => {
   it("should render character card with image", () => {
     renderWithProviders(<CharacterCard character={mockAdaptedCharacters[0]} />);
-    const image: HTMLImageElement = screen.getByAltText("Character image");
+    const image: HTMLImageElement = screen.getByAltText(
+      "Test Character 1 image"
+    );
     expect(image.src).toContain("standard_xlarge.jpg");
   });
 
