@@ -8,20 +8,23 @@ interface CharacterResumeProps {
 }
 
 export const CharacterResume = ({ character }: CharacterResumeProps) => {
-  const { description, images, name = "" } = character;
+  const { description = "", images, name = "" } = character;
+  const imageUrl = images?.big;
 
   return (
     <CharacterResumeContainer>
       <div className="flex flex-col md:flex-row md:gap-12 w-full max-w-[960px] md:h-72 lg:h-80 mx-auto">
         <div className="relative w-full aspect-square md:max-w-72 lg:max-w-80 md:max-h-72 lg:max-h-80">
-          <Image
-            src={images.big}
-            alt={`${name} Image`}
-            fill
-            priority
-            style={{ objectFit: "contain" }}
-            sizes="(max-width: 1024px) 288px, 320px"
-          />
+          {imageUrl && (
+            <Image
+              src={imageUrl}
+              alt={`${name} Image`}
+              fill
+              priority
+              style={{ objectFit: "contain" }}
+              sizes="(max-width: 1024px) 288px, 320px"
+            />
+          )}
         </div>
         <div className="flex flex-col flex-1 justify-center px-4 py-6 md:pr-12 lg:p-0">
           <div className="flex justify-between mb-6">
