@@ -2,7 +2,7 @@ import { HTMLProps } from "react";
 
 export const HeartIconOutline = ({
   className,
-  color = "#EC1D24",
+  color = "white",
   onClick,
   size = 12,
 }: HTMLProps<SVGElement>) => {

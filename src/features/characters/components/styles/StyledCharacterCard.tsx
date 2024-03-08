@@ -40,8 +40,15 @@ export const CharacterInfoContainer = styled.div`
   padding: 16px 16px 24px 16px;
   text-transform: uppercase;
   transition: all ease-in-out 300ms;
+  path {
+    transition: all ease-in-out 300ms;
+  }
 
   ${CharacterCardContainer}:hover & {
     background-position: 0 0;
+
+    path.filled {
+      fill: white;
+    }
   }
 `;

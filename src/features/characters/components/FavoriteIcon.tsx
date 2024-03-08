@@ -4,6 +4,7 @@ import { HTMLProps } from "react";
 import { HeartIconFilled, HeartIconOutline } from "@/components";
 import { Character } from "../models";
 import { useFavoritesContext } from "../context/favorites";
+import { theme } from "@/styles/theme";
 
 interface HeartIconProps extends HTMLProps<SVGElement> {
   character: Character;
@@ -19,7 +20,7 @@ export const FavoriteIcon = ({ character, ...rest }: HeartIconProps) => {
   const isInFavorites = !!favorites[`${character.id}`];
 
   return isInFavorites ? (
-    <HeartIconFilled onClick={handleClick} {...rest} />
+    <HeartIconFilled color={theme.colors.red} onClick={handleClick} {...rest} />
   ) : (
     <HeartIconOutline color="white" onClick={handleClick} {...rest} />
   );
