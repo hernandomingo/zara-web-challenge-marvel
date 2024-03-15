@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
 import { FavoritesCounter } from "..";
-import { renderWithProviders, screen } from "@/utils/test-utils";
+import { render, screen } from "@/utils/test-utils";
 
 describe("FavoritesCounter component", () => {
   it("should render icon", () => {
-    renderWithProviders(<FavoritesCounter />);
+    render(<FavoritesCounter />);
     const svg = screen.getByRole("graphics-symbol");
     expect(svg).toBeDefined();
   });

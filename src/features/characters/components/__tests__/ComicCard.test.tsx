@@ -1,11 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { renderWithProviders, screen } from "@/utils/test-utils";
+import { render, screen } from "@/utils/test-utils";
 import { ComicCard } from "..";
 import { mockAdaptedComics } from "@/features/characters/api/__mocks__/comics";
 
 describe("ComicCard component", () => {
   it("should render comic card with image", () => {
-    renderWithProviders(<ComicCard comic={mockAdaptedComics[0]} />);
+    render(<ComicCard comic={mockAdaptedComics[0]} />);
     const image: HTMLImageElement = screen.getByAltText(
       `Comic "${mockAdaptedComics[0].title}" image`
     );
@@ -13,7 +13,7 @@ describe("ComicCard component", () => {
   });
 
   it("should render comic card with year", () => {
-    renderWithProviders(<ComicCard comic={mockAdaptedComics[0]} />);
+    render(<ComicCard comic={mockAdaptedComics[0]} />);
     const year = screen.getByText(
       mockAdaptedComics[0].onSaleDate!.getFullYear().toString()
     );

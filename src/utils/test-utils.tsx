@@ -12,4 +12,4 @@ const renderWithProviders = (
 ) => render(ui, { wrapper: AllTheProviders, ...options });
 
 export * from "@testing-library/react";
-export { renderWithProviders };
+export { renderWithProviders as render };
