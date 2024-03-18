@@ -10,7 +10,7 @@ interface ErrorPageProps {
 
 export default function ErrorPage({ error, reset }: ErrorPageProps) {
   useEffect(() => {
-    console.error(error);
+    console.log(error);
   }, [error]);
 
   return <Error message={error.message} onReload={reset} />;

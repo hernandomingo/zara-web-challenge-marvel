@@ -3,12 +3,13 @@ import {
   charactersLimit,
   comicsLimit,
   comicsOrderBy,
+  revalidateTimeInSeconds,
 } from "./constants";
 import { CharacterApiResponse } from "./interfaces/characters.interface";
 import { CharacterComicsAPIResponse } from "./interfaces/comics.interface";
-import { getApiParams } from "./helpers";
-import { createAdaptedCharacter, createAdaptedComics } from "../adapters";
 import { Character } from "../models";
+import { createAdaptedCharacter, createAdaptedComics } from "../adapters";
+import { getApiParams } from "./helpers";
 
 export const searchCharacters = async (
   text: string | undefined = undefined
@@ -22,8 +23,16 @@ export const searchCharacters = async (
 
     const url = `${baseUrl}/characters?${params.toString()}`;
     const result: CharacterApiResponse = await fetch(url, {
-      cache: "force-cache",
+      next: {
+        revalidate: revalidateTimeInSeconds,
+      },
     }).then((res) => res.json());
+
+    if (!result || result.code !== 200) {
+      throw new Error("Problem retrieving characters API data", {
+        cause: result.status ? result.status : result.message,
+      });
+    }
 
     const characterList = result.data.results.map(createAdaptedCharacter);
 
@@ -33,12 +42,8 @@ export const searchCharacters = async (
       results: characterList,
     };
   } catch (error) {
-    console.error("Problem retrieving characters api data", error);
-    return {
-      count: 0,
-      total: 0,
-      results: [],
-    };
+    console.error(error);
+    throw error;
   }
 };
 
@@ -50,20 +55,25 @@ export const getCharacterDetailsById = async (id: string | number) => {
 
     const url = `${baseUrl}/characters/${id}?${params.toString()}`;
     const result: CharacterApiResponse = await fetch(url, {
-      cache: "force-cache",
+      next: {
+        revalidate: revalidateTimeInSeconds,
+      },
     }).then((res) => res.json());
+
+    if (!result) {
+      throw new Error("Problem retrieving character details API data");
+    }
+
+    if (result.code === 404) {
+      return;
+    }
 
     const character = createAdaptedCharacter(result.data.results[0]);
 
     return character;
   } catch (error) {
-    console.error("Problem retrieving characters details api data", error);
-    return {
-      id: 0,
-      images: { big: "", little: "" },
-      description: "",
-      name: "",
-    };
+    console.error(error);
+    throw error;
   }
 };
 
@@ -77,14 +87,20 @@ export const getCharacterComics = async (id: string | number) => {
 
     const url = `${baseUrl}/characters/${id}/comics?${params.toString()}`;
     const result: CharacterComicsAPIResponse = await fetch(url, {
-      cache: "force-cache",
+      next: {
+        revalidate: revalidateTimeInSeconds,
+      },
     }).then((res) => res.json());
+
+    if (!result) {
+      throw new Error("Problem retrieving comics data");
+    }
 
     const comics = result.data.results.map(createAdaptedComics);
 
     return comics;
   } catch (error) {
-    console.error("Problem retrieving comics data", error);
-    return [];
+    console.error(error);
+    throw error;
   }
 };

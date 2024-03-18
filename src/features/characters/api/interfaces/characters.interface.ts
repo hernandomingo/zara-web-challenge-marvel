@@ -1,6 +1,7 @@
 export interface CharacterApiResponse {
   code: number;
   status: string;
+  message?: string;
   copyright: string;
   attributionText: string;
   attributionHTML: string;

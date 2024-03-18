@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import {
   getCharacterComics,
   getCharacterDetailsById,
@@ -22,11 +23,15 @@ export async function generateMetadata({
   params,
 }: CharacterDetailsPageProps): Promise<Metadata> {
   try {
-    const { name } = await getCharacterDetailsById(params.id);
+    const character = await getCharacterDetailsById(params.id);
+
+    if (!character) {
+      return {};
+    }
 
     return {
-      title: `${name}`,
-      description: `Character Details - ${name}`,
+      title: `${character?.name}`,
+      description: `Character Details - ${character?.name}`,
     };
   } catch (error) {
     return {
@@ -39,8 +44,14 @@ export async function generateMetadata({
 export default async function CharacterDetailsPage({
   params,
 }: CharacterDetailsPageProps) {
-  const character = await getCharacterDetailsById(params.id);
-  const comics = await getCharacterComics(params.id);
+  const [character, comics] = await Promise.all([
+    getCharacterDetailsById(params.id),
+    getCharacterComics(params.id),
+  ]);
+
+  if (!character) {
+    notFound();
+  }
 
   return (
     <div>
