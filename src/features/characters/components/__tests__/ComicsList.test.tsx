@@ -7,6 +7,7 @@ describe("ComicsList component", () => {
   it("should render component with comics heading", () => {
     render(<ComicsList comics={mockAdaptedComics} />);
     const heading = screen.getByRole("heading");
+    expect(heading).toBeInTheDocument();
     expect(heading.innerHTML).toBe("COMICS");
   });
 

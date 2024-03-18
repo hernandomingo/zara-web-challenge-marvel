@@ -5,7 +5,7 @@ import { HeartIconFilled } from "..";
 describe("HeartIconFilled component", () => {
   it("should render icon", () => {
     render(<HeartIconFilled />);
-    const svg = screen.getByRole("graphics-symbol");
-    expect(svg).toBeDefined();
+    const icon = screen.getByRole("graphics-symbol");
+    expect(icon).toBeInTheDocument();
   });
 });

@@ -10,7 +10,7 @@ describe("CharactersLayout component", () => {
       </CharactersLayout>
     );
     const header = screen.getByRole("banner");
-    expect(header).toBeDefined();
+    expect(header).toBeInTheDocument();
   });
 
   it("should render children element", () => {
@@ -21,6 +21,6 @@ describe("CharactersLayout component", () => {
       </CharactersLayout>
     );
     const childrenElement = screen.getByText(text);
-    expect(childrenElement).toBeDefined();
+    expect(childrenElement).toBeInTheDocument();
   });
 });

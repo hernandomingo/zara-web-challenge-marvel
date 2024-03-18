@@ -5,7 +5,7 @@ import { HeartIconOutline } from "..";
 describe("HeartIconOutline component", () => {
   it("should render icon", () => {
     render(<HeartIconOutline />);
-    const svg = screen.getByRole("graphics-symbol");
-    expect(svg).toBeDefined();
+    const icon = screen.getByRole("graphics-symbol");
+    expect(icon).toBeInTheDocument();
   });
 });

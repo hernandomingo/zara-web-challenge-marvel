@@ -6,7 +6,7 @@ import { render, screen } from "@/utils/test-utils";
 describe("FavoriteIcon component", () => {
   it("should render icon", () => {
     render(<FavoriteIcon character={mockAdaptedCharacters[0]} />);
-    const svg = screen.getByRole("graphics-symbol");
-    expect(svg).toBeDefined();
+    const icon = screen.getByRole("graphics-symbol");
+    expect(icon).toBeInTheDocument();
   });
 });

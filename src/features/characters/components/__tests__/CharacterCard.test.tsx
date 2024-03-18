@@ -9,12 +9,13 @@ describe("CharacterCard component", () => {
     const image: HTMLImageElement = screen.getByAltText(
       "Test Character 1 image"
     );
+    expect(image).toBeInTheDocument();
     expect(image.src).toContain("standard_xlarge.jpg");
   });
 
   it("should render character card with name", () => {
     render(<CharacterCard character={mockAdaptedCharacters[0]} />);
     const name = screen.getByText(mockAdaptedCharacters[0].name);
-    expect(name).toBeDefined();
+    expect(name).toBeInTheDocument();
   });
 });

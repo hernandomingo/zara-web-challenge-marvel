@@ -6,6 +6,6 @@ describe("Counter component", () => {
   it("should render Counter component with number of results", () => {
     render(<Counter totalCount={2} />);
     const results = screen.getByText("2 RESULTS");
-    expect(results).toBeDefined();
+    expect(results).toBeInTheDocument();
   });
 });
